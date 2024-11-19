@@ -1,0 +1,2350 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> stmts
+Rule 2     stmts -> stmt
+Rule 3     stmts -> stmts stmt
+Rule 4     stmt -> bloco_SEQ
+Rule 5     stmt -> bloco_PAR
+Rule 6     stmt -> atribuicao
+Rule 7     stmt -> bloco_IF
+Rule 8     stmt -> bloco_WHILE
+Rule 9     stmt -> input_stmt
+Rule 10    stmt -> output_stmt
+Rule 11    stmt -> send_stmt
+Rule 12    stmt -> receive_stmt
+Rule 13    bloco_SEQ -> SEQ LBRACE stmts RBRACE
+Rule 14    bloco_PAR -> PAR LBRACE stmts RBRACE
+Rule 15    atribuicao -> ID EQUALS expr
+Rule 16    bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE
+Rule 17    bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+Rule 18    bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+Rule 19    input_stmt -> INPUT LPAREN ID RPAREN
+Rule 20    output_stmt -> OUTPUT LPAREN output_args RPAREN
+Rule 21    output_args -> expr
+Rule 22    output_args -> STRING
+Rule 23    output_args -> output_args COMMA expr
+Rule 24    output_args -> output_args COMMA STRING
+Rule 25    send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN
+Rule 26    receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+Rule 27    expr -> INT
+Rule 28    expr -> ID
+Rule 29    expr -> expr PLUS expr
+Rule 30    expr -> expr MINUS expr
+Rule 31    expr -> expr TIMES expr
+Rule 32    expr -> expr DIVIDE expr
+Rule 33    expr -> expr EQUALS_EQUALS expr
+Rule 34    expr -> expr NOT_EQUALS expr
+Rule 35    expr -> expr LESS_THAN expr
+Rule 36    expr -> expr GREATER_THAN expr
+Rule 37    expr -> expr LESS_THAN_EQUALS expr
+Rule 38    expr -> expr GREATER_THAN_EQUALS expr
+Rule 39    expr -> expr DOT ID
+
+Terminals, with rules where they appear
+
+COMMA                : 23 24 25 26
+C_CHANNEL            : 25 26
+DIVIDE               : 32
+DOT                  : 39
+ELSE                 : 17
+EQUALS               : 15
+EQUALS_EQUALS        : 33
+GREATER_THAN         : 36
+GREATER_THAN_EQUALS  : 38
+ID                   : 15 19 26 28 39
+IF                   : 16 17
+INPUT                : 19
+INT                  : 27
+LBRACE               : 13 14 16 17 17 18
+LESS_THAN            : 35
+LESS_THAN_EQUALS     : 37
+LPAREN               : 16 17 18 19 20 25 26
+MINUS                : 30
+NOT_EQUALS           : 34
+OUTPUT               : 20
+PAR                  : 14
+PLUS                 : 29
+RBRACE               : 13 14 16 17 17 18
+RECEIVE              : 26
+RPAREN               : 16 17 18 19 20 25 26
+SEND                 : 25
+SEQ                  : 13
+STRING               : 22 24
+TIMES                : 31
+WHILE                : 18
+error                : 
+
+Nonterminals, with rules where they appear
+
+atribuicao           : 6
+bloco_IF             : 7
+bloco_PAR            : 5
+bloco_SEQ            : 4
+bloco_WHILE          : 8
+expr                 : 15 16 17 18 21 23 25 29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39
+input_stmt           : 9
+output_args          : 20 23 24
+output_stmt          : 10
+program              : 0
+receive_stmt         : 12
+send_stmt            : 11
+stmt                 : 2 3
+stmts                : 1 3 13 14 16 17 17 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . stmts
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    program                        shift and go to state 1
+    stmts                          shift and go to state 2
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> stmts .
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    $end            reduce using rule 1 (program -> stmts .)
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 3
+
+    (2) stmts -> stmt .
+
+    SEQ             reduce using rule 2 (stmts -> stmt .)
+    PAR             reduce using rule 2 (stmts -> stmt .)
+    ID              reduce using rule 2 (stmts -> stmt .)
+    IF              reduce using rule 2 (stmts -> stmt .)
+    WHILE           reduce using rule 2 (stmts -> stmt .)
+    INPUT           reduce using rule 2 (stmts -> stmt .)
+    OUTPUT          reduce using rule 2 (stmts -> stmt .)
+    SEND            reduce using rule 2 (stmts -> stmt .)
+    RECEIVE         reduce using rule 2 (stmts -> stmt .)
+    $end            reduce using rule 2 (stmts -> stmt .)
+    RBRACE          reduce using rule 2 (stmts -> stmt .)
+
+
+state 4
+
+    (4) stmt -> bloco_SEQ .
+
+    SEQ             reduce using rule 4 (stmt -> bloco_SEQ .)
+    PAR             reduce using rule 4 (stmt -> bloco_SEQ .)
+    ID              reduce using rule 4 (stmt -> bloco_SEQ .)
+    IF              reduce using rule 4 (stmt -> bloco_SEQ .)
+    WHILE           reduce using rule 4 (stmt -> bloco_SEQ .)
+    INPUT           reduce using rule 4 (stmt -> bloco_SEQ .)
+    OUTPUT          reduce using rule 4 (stmt -> bloco_SEQ .)
+    SEND            reduce using rule 4 (stmt -> bloco_SEQ .)
+    RECEIVE         reduce using rule 4 (stmt -> bloco_SEQ .)
+    $end            reduce using rule 4 (stmt -> bloco_SEQ .)
+    RBRACE          reduce using rule 4 (stmt -> bloco_SEQ .)
+
+
+state 5
+
+    (5) stmt -> bloco_PAR .
+
+    SEQ             reduce using rule 5 (stmt -> bloco_PAR .)
+    PAR             reduce using rule 5 (stmt -> bloco_PAR .)
+    ID              reduce using rule 5 (stmt -> bloco_PAR .)
+    IF              reduce using rule 5 (stmt -> bloco_PAR .)
+    WHILE           reduce using rule 5 (stmt -> bloco_PAR .)
+    INPUT           reduce using rule 5 (stmt -> bloco_PAR .)
+    OUTPUT          reduce using rule 5 (stmt -> bloco_PAR .)
+    SEND            reduce using rule 5 (stmt -> bloco_PAR .)
+    RECEIVE         reduce using rule 5 (stmt -> bloco_PAR .)
+    $end            reduce using rule 5 (stmt -> bloco_PAR .)
+    RBRACE          reduce using rule 5 (stmt -> bloco_PAR .)
+
+
+state 6
+
+    (6) stmt -> atribuicao .
+
+    SEQ             reduce using rule 6 (stmt -> atribuicao .)
+    PAR             reduce using rule 6 (stmt -> atribuicao .)
+    ID              reduce using rule 6 (stmt -> atribuicao .)
+    IF              reduce using rule 6 (stmt -> atribuicao .)
+    WHILE           reduce using rule 6 (stmt -> atribuicao .)
+    INPUT           reduce using rule 6 (stmt -> atribuicao .)
+    OUTPUT          reduce using rule 6 (stmt -> atribuicao .)
+    SEND            reduce using rule 6 (stmt -> atribuicao .)
+    RECEIVE         reduce using rule 6 (stmt -> atribuicao .)
+    $end            reduce using rule 6 (stmt -> atribuicao .)
+    RBRACE          reduce using rule 6 (stmt -> atribuicao .)
+
+
+state 7
+
+    (7) stmt -> bloco_IF .
+
+    SEQ             reduce using rule 7 (stmt -> bloco_IF .)
+    PAR             reduce using rule 7 (stmt -> bloco_IF .)
+    ID              reduce using rule 7 (stmt -> bloco_IF .)
+    IF              reduce using rule 7 (stmt -> bloco_IF .)
+    WHILE           reduce using rule 7 (stmt -> bloco_IF .)
+    INPUT           reduce using rule 7 (stmt -> bloco_IF .)
+    OUTPUT          reduce using rule 7 (stmt -> bloco_IF .)
+    SEND            reduce using rule 7 (stmt -> bloco_IF .)
+    RECEIVE         reduce using rule 7 (stmt -> bloco_IF .)
+    $end            reduce using rule 7 (stmt -> bloco_IF .)
+    RBRACE          reduce using rule 7 (stmt -> bloco_IF .)
+
+
+state 8
+
+    (8) stmt -> bloco_WHILE .
+
+    SEQ             reduce using rule 8 (stmt -> bloco_WHILE .)
+    PAR             reduce using rule 8 (stmt -> bloco_WHILE .)
+    ID              reduce using rule 8 (stmt -> bloco_WHILE .)
+    IF              reduce using rule 8 (stmt -> bloco_WHILE .)
+    WHILE           reduce using rule 8 (stmt -> bloco_WHILE .)
+    INPUT           reduce using rule 8 (stmt -> bloco_WHILE .)
+    OUTPUT          reduce using rule 8 (stmt -> bloco_WHILE .)
+    SEND            reduce using rule 8 (stmt -> bloco_WHILE .)
+    RECEIVE         reduce using rule 8 (stmt -> bloco_WHILE .)
+    $end            reduce using rule 8 (stmt -> bloco_WHILE .)
+    RBRACE          reduce using rule 8 (stmt -> bloco_WHILE .)
+
+
+state 9
+
+    (9) stmt -> input_stmt .
+
+    SEQ             reduce using rule 9 (stmt -> input_stmt .)
+    PAR             reduce using rule 9 (stmt -> input_stmt .)
+    ID              reduce using rule 9 (stmt -> input_stmt .)
+    IF              reduce using rule 9 (stmt -> input_stmt .)
+    WHILE           reduce using rule 9 (stmt -> input_stmt .)
+    INPUT           reduce using rule 9 (stmt -> input_stmt .)
+    OUTPUT          reduce using rule 9 (stmt -> input_stmt .)
+    SEND            reduce using rule 9 (stmt -> input_stmt .)
+    RECEIVE         reduce using rule 9 (stmt -> input_stmt .)
+    $end            reduce using rule 9 (stmt -> input_stmt .)
+    RBRACE          reduce using rule 9 (stmt -> input_stmt .)
+
+
+state 10
+
+    (10) stmt -> output_stmt .
+
+    SEQ             reduce using rule 10 (stmt -> output_stmt .)
+    PAR             reduce using rule 10 (stmt -> output_stmt .)
+    ID              reduce using rule 10 (stmt -> output_stmt .)
+    IF              reduce using rule 10 (stmt -> output_stmt .)
+    WHILE           reduce using rule 10 (stmt -> output_stmt .)
+    INPUT           reduce using rule 10 (stmt -> output_stmt .)
+    OUTPUT          reduce using rule 10 (stmt -> output_stmt .)
+    SEND            reduce using rule 10 (stmt -> output_stmt .)
+    RECEIVE         reduce using rule 10 (stmt -> output_stmt .)
+    $end            reduce using rule 10 (stmt -> output_stmt .)
+    RBRACE          reduce using rule 10 (stmt -> output_stmt .)
+
+
+state 11
+
+    (11) stmt -> send_stmt .
+
+    SEQ             reduce using rule 11 (stmt -> send_stmt .)
+    PAR             reduce using rule 11 (stmt -> send_stmt .)
+    ID              reduce using rule 11 (stmt -> send_stmt .)
+    IF              reduce using rule 11 (stmt -> send_stmt .)
+    WHILE           reduce using rule 11 (stmt -> send_stmt .)
+    INPUT           reduce using rule 11 (stmt -> send_stmt .)
+    OUTPUT          reduce using rule 11 (stmt -> send_stmt .)
+    SEND            reduce using rule 11 (stmt -> send_stmt .)
+    RECEIVE         reduce using rule 11 (stmt -> send_stmt .)
+    $end            reduce using rule 11 (stmt -> send_stmt .)
+    RBRACE          reduce using rule 11 (stmt -> send_stmt .)
+
+
+state 12
+
+    (12) stmt -> receive_stmt .
+
+    SEQ             reduce using rule 12 (stmt -> receive_stmt .)
+    PAR             reduce using rule 12 (stmt -> receive_stmt .)
+    ID              reduce using rule 12 (stmt -> receive_stmt .)
+    IF              reduce using rule 12 (stmt -> receive_stmt .)
+    WHILE           reduce using rule 12 (stmt -> receive_stmt .)
+    INPUT           reduce using rule 12 (stmt -> receive_stmt .)
+    OUTPUT          reduce using rule 12 (stmt -> receive_stmt .)
+    SEND            reduce using rule 12 (stmt -> receive_stmt .)
+    RECEIVE         reduce using rule 12 (stmt -> receive_stmt .)
+    $end            reduce using rule 12 (stmt -> receive_stmt .)
+    RBRACE          reduce using rule 12 (stmt -> receive_stmt .)
+
+
+state 13
+
+    (13) bloco_SEQ -> SEQ . LBRACE stmts RBRACE
+
+    LBRACE          shift and go to state 23
+
+
+state 14
+
+    (14) bloco_PAR -> PAR . LBRACE stmts RBRACE
+
+    LBRACE          shift and go to state 24
+
+
+state 15
+
+    (15) atribuicao -> ID . EQUALS expr
+
+    EQUALS          shift and go to state 25
+
+
+state 16
+
+    (16) bloco_IF -> IF . LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> IF . LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+
+    LPAREN          shift and go to state 26
+
+
+state 17
+
+    (18) bloco_WHILE -> WHILE . LPAREN expr RPAREN LBRACE stmts RBRACE
+
+    LPAREN          shift and go to state 27
+
+
+state 18
+
+    (19) input_stmt -> INPUT . LPAREN ID RPAREN
+
+    LPAREN          shift and go to state 28
+
+
+state 19
+
+    (20) output_stmt -> OUTPUT . LPAREN output_args RPAREN
+
+    LPAREN          shift and go to state 29
+
+
+state 20
+
+    (25) send_stmt -> SEND . LPAREN C_CHANNEL COMMA expr RPAREN
+
+    LPAREN          shift and go to state 30
+
+
+state 21
+
+    (26) receive_stmt -> RECEIVE . LPAREN C_CHANNEL COMMA ID RPAREN
+
+    LPAREN          shift and go to state 31
+
+
+state 22
+
+    (3) stmts -> stmts stmt .
+
+    SEQ             reduce using rule 3 (stmts -> stmts stmt .)
+    PAR             reduce using rule 3 (stmts -> stmts stmt .)
+    ID              reduce using rule 3 (stmts -> stmts stmt .)
+    IF              reduce using rule 3 (stmts -> stmts stmt .)
+    WHILE           reduce using rule 3 (stmts -> stmts stmt .)
+    INPUT           reduce using rule 3 (stmts -> stmts stmt .)
+    OUTPUT          reduce using rule 3 (stmts -> stmts stmt .)
+    SEND            reduce using rule 3 (stmts -> stmts stmt .)
+    RECEIVE         reduce using rule 3 (stmts -> stmts stmt .)
+    $end            reduce using rule 3 (stmts -> stmts stmt .)
+    RBRACE          reduce using rule 3 (stmts -> stmts stmt .)
+
+
+state 23
+
+    (13) bloco_SEQ -> SEQ LBRACE . stmts RBRACE
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmts                          shift and go to state 32
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 24
+
+    (14) bloco_PAR -> PAR LBRACE . stmts RBRACE
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmts                          shift and go to state 33
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 25
+
+    (15) atribuicao -> ID EQUALS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 35
+
+state 26
+
+    (16) bloco_IF -> IF LPAREN . expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> IF LPAREN . expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 37
+
+state 27
+
+    (18) bloco_WHILE -> WHILE LPAREN . expr RPAREN LBRACE stmts RBRACE
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 38
+
+state 28
+
+    (19) input_stmt -> INPUT LPAREN . ID RPAREN
+
+    ID              shift and go to state 39
+
+
+state 29
+
+    (20) output_stmt -> OUTPUT LPAREN . output_args RPAREN
+    (21) output_args -> . expr
+    (22) output_args -> . STRING
+    (23) output_args -> . output_args COMMA expr
+    (24) output_args -> . output_args COMMA STRING
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    STRING          shift and go to state 42
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    output_args                    shift and go to state 40
+    expr                           shift and go to state 41
+
+state 30
+
+    (25) send_stmt -> SEND LPAREN . C_CHANNEL COMMA expr RPAREN
+
+    C_CHANNEL       shift and go to state 43
+
+
+state 31
+
+    (26) receive_stmt -> RECEIVE LPAREN . C_CHANNEL COMMA ID RPAREN
+
+    C_CHANNEL       shift and go to state 44
+
+
+state 32
+
+    (13) bloco_SEQ -> SEQ LBRACE stmts . RBRACE
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    RBRACE          shift and go to state 45
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 33
+
+    (14) bloco_PAR -> PAR LBRACE stmts . RBRACE
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    RBRACE          shift and go to state 46
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 34
+
+    (28) expr -> ID .
+
+    PLUS            reduce using rule 28 (expr -> ID .)
+    MINUS           reduce using rule 28 (expr -> ID .)
+    TIMES           reduce using rule 28 (expr -> ID .)
+    DIVIDE          reduce using rule 28 (expr -> ID .)
+    EQUALS_EQUALS   reduce using rule 28 (expr -> ID .)
+    NOT_EQUALS      reduce using rule 28 (expr -> ID .)
+    LESS_THAN       reduce using rule 28 (expr -> ID .)
+    GREATER_THAN    reduce using rule 28 (expr -> ID .)
+    LESS_THAN_EQUALS reduce using rule 28 (expr -> ID .)
+    GREATER_THAN_EQUALS reduce using rule 28 (expr -> ID .)
+    DOT             reduce using rule 28 (expr -> ID .)
+    SEQ             reduce using rule 28 (expr -> ID .)
+    PAR             reduce using rule 28 (expr -> ID .)
+    ID              reduce using rule 28 (expr -> ID .)
+    IF              reduce using rule 28 (expr -> ID .)
+    WHILE           reduce using rule 28 (expr -> ID .)
+    INPUT           reduce using rule 28 (expr -> ID .)
+    OUTPUT          reduce using rule 28 (expr -> ID .)
+    SEND            reduce using rule 28 (expr -> ID .)
+    RECEIVE         reduce using rule 28 (expr -> ID .)
+    $end            reduce using rule 28 (expr -> ID .)
+    RBRACE          reduce using rule 28 (expr -> ID .)
+    RPAREN          reduce using rule 28 (expr -> ID .)
+    COMMA           reduce using rule 28 (expr -> ID .)
+
+
+state 35
+
+    (15) atribuicao -> ID EQUALS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    SEQ             reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    PAR             reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    ID              reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    IF              reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    WHILE           reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    INPUT           reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    OUTPUT          reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    SEND            reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    RECEIVE         reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    $end            reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    RBRACE          reduce using rule 15 (atribuicao -> ID EQUALS expr .)
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 36
+
+    (27) expr -> INT .
+
+    PLUS            reduce using rule 27 (expr -> INT .)
+    MINUS           reduce using rule 27 (expr -> INT .)
+    TIMES           reduce using rule 27 (expr -> INT .)
+    DIVIDE          reduce using rule 27 (expr -> INT .)
+    EQUALS_EQUALS   reduce using rule 27 (expr -> INT .)
+    NOT_EQUALS      reduce using rule 27 (expr -> INT .)
+    LESS_THAN       reduce using rule 27 (expr -> INT .)
+    GREATER_THAN    reduce using rule 27 (expr -> INT .)
+    LESS_THAN_EQUALS reduce using rule 27 (expr -> INT .)
+    GREATER_THAN_EQUALS reduce using rule 27 (expr -> INT .)
+    DOT             reduce using rule 27 (expr -> INT .)
+    SEQ             reduce using rule 27 (expr -> INT .)
+    PAR             reduce using rule 27 (expr -> INT .)
+    ID              reduce using rule 27 (expr -> INT .)
+    IF              reduce using rule 27 (expr -> INT .)
+    WHILE           reduce using rule 27 (expr -> INT .)
+    INPUT           reduce using rule 27 (expr -> INT .)
+    OUTPUT          reduce using rule 27 (expr -> INT .)
+    SEND            reduce using rule 27 (expr -> INT .)
+    RECEIVE         reduce using rule 27 (expr -> INT .)
+    $end            reduce using rule 27 (expr -> INT .)
+    RBRACE          reduce using rule 27 (expr -> INT .)
+    RPAREN          reduce using rule 27 (expr -> INT .)
+    COMMA           reduce using rule 27 (expr -> INT .)
+
+
+state 37
+
+    (16) bloco_IF -> IF LPAREN expr . RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> IF LPAREN expr . RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    RPAREN          shift and go to state 58
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 38
+
+    (18) bloco_WHILE -> WHILE LPAREN expr . RPAREN LBRACE stmts RBRACE
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    RPAREN          shift and go to state 59
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 39
+
+    (19) input_stmt -> INPUT LPAREN ID . RPAREN
+
+    RPAREN          shift and go to state 60
+
+
+state 40
+
+    (20) output_stmt -> OUTPUT LPAREN output_args . RPAREN
+    (23) output_args -> output_args . COMMA expr
+    (24) output_args -> output_args . COMMA STRING
+
+    RPAREN          shift and go to state 61
+    COMMA           shift and go to state 62
+
+
+state 41
+
+    (21) output_args -> expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    RPAREN          reduce using rule 21 (output_args -> expr .)
+    COMMA           reduce using rule 21 (output_args -> expr .)
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 42
+
+    (22) output_args -> STRING .
+
+    RPAREN          reduce using rule 22 (output_args -> STRING .)
+    COMMA           reduce using rule 22 (output_args -> STRING .)
+
+
+state 43
+
+    (25) send_stmt -> SEND LPAREN C_CHANNEL . COMMA expr RPAREN
+
+    COMMA           shift and go to state 63
+
+
+state 44
+
+    (26) receive_stmt -> RECEIVE LPAREN C_CHANNEL . COMMA ID RPAREN
+
+    COMMA           shift and go to state 64
+
+
+state 45
+
+    (13) bloco_SEQ -> SEQ LBRACE stmts RBRACE .
+
+    SEQ             reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    PAR             reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    ID              reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    IF              reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    WHILE           reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    INPUT           reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    OUTPUT          reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    SEND            reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    RECEIVE         reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    $end            reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+    RBRACE          reduce using rule 13 (bloco_SEQ -> SEQ LBRACE stmts RBRACE .)
+
+
+state 46
+
+    (14) bloco_PAR -> PAR LBRACE stmts RBRACE .
+
+    SEQ             reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    PAR             reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    ID              reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    IF              reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    WHILE           reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    INPUT           reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    OUTPUT          reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    SEND            reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    RECEIVE         reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    $end            reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+    RBRACE          reduce using rule 14 (bloco_PAR -> PAR LBRACE stmts RBRACE .)
+
+
+state 47
+
+    (29) expr -> expr PLUS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 65
+
+state 48
+
+    (30) expr -> expr MINUS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 66
+
+state 49
+
+    (31) expr -> expr TIMES . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 67
+
+state 50
+
+    (32) expr -> expr DIVIDE . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 68
+
+state 51
+
+    (33) expr -> expr EQUALS_EQUALS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 69
+
+state 52
+
+    (34) expr -> expr NOT_EQUALS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 70
+
+state 53
+
+    (35) expr -> expr LESS_THAN . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 71
+
+state 54
+
+    (36) expr -> expr GREATER_THAN . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 72
+
+state 55
+
+    (37) expr -> expr LESS_THAN_EQUALS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 73
+
+state 56
+
+    (38) expr -> expr GREATER_THAN_EQUALS . expr
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 74
+
+state 57
+
+    (39) expr -> expr DOT . ID
+
+    ID              shift and go to state 75
+
+
+state 58
+
+    (16) bloco_IF -> IF LPAREN expr RPAREN . LBRACE stmts RBRACE
+    (17) bloco_IF -> IF LPAREN expr RPAREN . LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+
+    LBRACE          shift and go to state 76
+
+
+state 59
+
+    (18) bloco_WHILE -> WHILE LPAREN expr RPAREN . LBRACE stmts RBRACE
+
+    LBRACE          shift and go to state 77
+
+
+state 60
+
+    (19) input_stmt -> INPUT LPAREN ID RPAREN .
+
+    SEQ             reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    PAR             reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    ID              reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    IF              reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    WHILE           reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    INPUT           reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    OUTPUT          reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    SEND            reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    RECEIVE         reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    $end            reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+    RBRACE          reduce using rule 19 (input_stmt -> INPUT LPAREN ID RPAREN .)
+
+
+state 61
+
+    (20) output_stmt -> OUTPUT LPAREN output_args RPAREN .
+
+    SEQ             reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    PAR             reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    ID              reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    IF              reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    WHILE           reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    INPUT           reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    OUTPUT          reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    SEND            reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    RECEIVE         reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    $end            reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+    RBRACE          reduce using rule 20 (output_stmt -> OUTPUT LPAREN output_args RPAREN .)
+
+
+state 62
+
+    (23) output_args -> output_args COMMA . expr
+    (24) output_args -> output_args COMMA . STRING
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    STRING          shift and go to state 79
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 78
+
+state 63
+
+    (25) send_stmt -> SEND LPAREN C_CHANNEL COMMA . expr RPAREN
+    (27) expr -> . INT
+    (28) expr -> . ID
+    (29) expr -> . expr PLUS expr
+    (30) expr -> . expr MINUS expr
+    (31) expr -> . expr TIMES expr
+    (32) expr -> . expr DIVIDE expr
+    (33) expr -> . expr EQUALS_EQUALS expr
+    (34) expr -> . expr NOT_EQUALS expr
+    (35) expr -> . expr LESS_THAN expr
+    (36) expr -> . expr GREATER_THAN expr
+    (37) expr -> . expr LESS_THAN_EQUALS expr
+    (38) expr -> . expr GREATER_THAN_EQUALS expr
+    (39) expr -> . expr DOT ID
+
+    INT             shift and go to state 36
+    ID              shift and go to state 34
+
+    expr                           shift and go to state 80
+
+state 64
+
+    (26) receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA . ID RPAREN
+
+    ID              shift and go to state 81
+
+
+state 65
+
+    (29) expr -> expr PLUS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 29 (expr -> expr PLUS expr .)
+    MINUS           reduce using rule 29 (expr -> expr PLUS expr .)
+    DOT             reduce using rule 29 (expr -> expr PLUS expr .)
+    SEQ             reduce using rule 29 (expr -> expr PLUS expr .)
+    PAR             reduce using rule 29 (expr -> expr PLUS expr .)
+    ID              reduce using rule 29 (expr -> expr PLUS expr .)
+    IF              reduce using rule 29 (expr -> expr PLUS expr .)
+    WHILE           reduce using rule 29 (expr -> expr PLUS expr .)
+    INPUT           reduce using rule 29 (expr -> expr PLUS expr .)
+    OUTPUT          reduce using rule 29 (expr -> expr PLUS expr .)
+    SEND            reduce using rule 29 (expr -> expr PLUS expr .)
+    RECEIVE         reduce using rule 29 (expr -> expr PLUS expr .)
+    $end            reduce using rule 29 (expr -> expr PLUS expr .)
+    RBRACE          reduce using rule 29 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 29 (expr -> expr PLUS expr .)
+    COMMA           reduce using rule 29 (expr -> expr PLUS expr .)
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+
+  ! TIMES           [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! DIVIDE          [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! EQUALS_EQUALS   [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! NOT_EQUALS      [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! LESS_THAN       [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! GREATER_THAN    [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! LESS_THAN_EQUALS [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! GREATER_THAN_EQUALS [ reduce using rule 29 (expr -> expr PLUS expr .) ]
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 66
+
+    (30) expr -> expr MINUS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 30 (expr -> expr MINUS expr .)
+    MINUS           reduce using rule 30 (expr -> expr MINUS expr .)
+    DOT             reduce using rule 30 (expr -> expr MINUS expr .)
+    SEQ             reduce using rule 30 (expr -> expr MINUS expr .)
+    PAR             reduce using rule 30 (expr -> expr MINUS expr .)
+    ID              reduce using rule 30 (expr -> expr MINUS expr .)
+    IF              reduce using rule 30 (expr -> expr MINUS expr .)
+    WHILE           reduce using rule 30 (expr -> expr MINUS expr .)
+    INPUT           reduce using rule 30 (expr -> expr MINUS expr .)
+    OUTPUT          reduce using rule 30 (expr -> expr MINUS expr .)
+    SEND            reduce using rule 30 (expr -> expr MINUS expr .)
+    RECEIVE         reduce using rule 30 (expr -> expr MINUS expr .)
+    $end            reduce using rule 30 (expr -> expr MINUS expr .)
+    RBRACE          reduce using rule 30 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 30 (expr -> expr MINUS expr .)
+    COMMA           reduce using rule 30 (expr -> expr MINUS expr .)
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+
+  ! TIMES           [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! DIVIDE          [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! EQUALS_EQUALS   [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! NOT_EQUALS      [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! LESS_THAN       [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! GREATER_THAN    [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! LESS_THAN_EQUALS [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! GREATER_THAN_EQUALS [ reduce using rule 30 (expr -> expr MINUS expr .) ]
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 67
+
+    (31) expr -> expr TIMES expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 31 (expr -> expr TIMES expr .)
+    MINUS           reduce using rule 31 (expr -> expr TIMES expr .)
+    TIMES           reduce using rule 31 (expr -> expr TIMES expr .)
+    DIVIDE          reduce using rule 31 (expr -> expr TIMES expr .)
+    DOT             reduce using rule 31 (expr -> expr TIMES expr .)
+    SEQ             reduce using rule 31 (expr -> expr TIMES expr .)
+    PAR             reduce using rule 31 (expr -> expr TIMES expr .)
+    ID              reduce using rule 31 (expr -> expr TIMES expr .)
+    IF              reduce using rule 31 (expr -> expr TIMES expr .)
+    WHILE           reduce using rule 31 (expr -> expr TIMES expr .)
+    INPUT           reduce using rule 31 (expr -> expr TIMES expr .)
+    OUTPUT          reduce using rule 31 (expr -> expr TIMES expr .)
+    SEND            reduce using rule 31 (expr -> expr TIMES expr .)
+    RECEIVE         reduce using rule 31 (expr -> expr TIMES expr .)
+    $end            reduce using rule 31 (expr -> expr TIMES expr .)
+    RBRACE          reduce using rule 31 (expr -> expr TIMES expr .)
+    RPAREN          reduce using rule 31 (expr -> expr TIMES expr .)
+    COMMA           reduce using rule 31 (expr -> expr TIMES expr .)
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+
+  ! EQUALS_EQUALS   [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! NOT_EQUALS      [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! LESS_THAN       [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! GREATER_THAN    [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! LESS_THAN_EQUALS [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! GREATER_THAN_EQUALS [ reduce using rule 31 (expr -> expr TIMES expr .) ]
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 68
+
+    (32) expr -> expr DIVIDE expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 32 (expr -> expr DIVIDE expr .)
+    MINUS           reduce using rule 32 (expr -> expr DIVIDE expr .)
+    TIMES           reduce using rule 32 (expr -> expr DIVIDE expr .)
+    DIVIDE          reduce using rule 32 (expr -> expr DIVIDE expr .)
+    DOT             reduce using rule 32 (expr -> expr DIVIDE expr .)
+    SEQ             reduce using rule 32 (expr -> expr DIVIDE expr .)
+    PAR             reduce using rule 32 (expr -> expr DIVIDE expr .)
+    ID              reduce using rule 32 (expr -> expr DIVIDE expr .)
+    IF              reduce using rule 32 (expr -> expr DIVIDE expr .)
+    WHILE           reduce using rule 32 (expr -> expr DIVIDE expr .)
+    INPUT           reduce using rule 32 (expr -> expr DIVIDE expr .)
+    OUTPUT          reduce using rule 32 (expr -> expr DIVIDE expr .)
+    SEND            reduce using rule 32 (expr -> expr DIVIDE expr .)
+    RECEIVE         reduce using rule 32 (expr -> expr DIVIDE expr .)
+    $end            reduce using rule 32 (expr -> expr DIVIDE expr .)
+    RBRACE          reduce using rule 32 (expr -> expr DIVIDE expr .)
+    RPAREN          reduce using rule 32 (expr -> expr DIVIDE expr .)
+    COMMA           reduce using rule 32 (expr -> expr DIVIDE expr .)
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+
+  ! EQUALS_EQUALS   [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! NOT_EQUALS      [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! LESS_THAN       [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! GREATER_THAN    [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! LESS_THAN_EQUALS [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! GREATER_THAN_EQUALS [ reduce using rule 32 (expr -> expr DIVIDE expr .) ]
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 69
+
+    (33) expr -> expr EQUALS_EQUALS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    MINUS           reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    TIMES           reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    DIVIDE          reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    EQUALS_EQUALS   reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    NOT_EQUALS      reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    LESS_THAN       reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    GREATER_THAN    reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    LESS_THAN_EQUALS reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    GREATER_THAN_EQUALS reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    DOT             reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    SEQ             reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    PAR             reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    ID              reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    IF              reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    WHILE           reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    INPUT           reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    OUTPUT          reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    SEND            reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    RECEIVE         reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    $end            reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    RBRACE          reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    RPAREN          reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+    COMMA           reduce using rule 33 (expr -> expr EQUALS_EQUALS expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 70
+
+    (34) expr -> expr NOT_EQUALS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    MINUS           reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    TIMES           reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    DIVIDE          reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    EQUALS_EQUALS   reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    NOT_EQUALS      reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    LESS_THAN       reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    GREATER_THAN    reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    LESS_THAN_EQUALS reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    GREATER_THAN_EQUALS reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    DOT             reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    SEQ             reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    PAR             reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    ID              reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    IF              reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    WHILE           reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    INPUT           reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    OUTPUT          reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    SEND            reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    RECEIVE         reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    $end            reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    RBRACE          reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    RPAREN          reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+    COMMA           reduce using rule 34 (expr -> expr NOT_EQUALS expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 71
+
+    (35) expr -> expr LESS_THAN expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    MINUS           reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    TIMES           reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    DIVIDE          reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    EQUALS_EQUALS   reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    NOT_EQUALS      reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    LESS_THAN       reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    GREATER_THAN    reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    LESS_THAN_EQUALS reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    GREATER_THAN_EQUALS reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    DOT             reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    SEQ             reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    PAR             reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    ID              reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    IF              reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    WHILE           reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    INPUT           reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    OUTPUT          reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    SEND            reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    RECEIVE         reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    $end            reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    RBRACE          reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    RPAREN          reduce using rule 35 (expr -> expr LESS_THAN expr .)
+    COMMA           reduce using rule 35 (expr -> expr LESS_THAN expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 72
+
+    (36) expr -> expr GREATER_THAN expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    MINUS           reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    TIMES           reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    DIVIDE          reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    EQUALS_EQUALS   reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    NOT_EQUALS      reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    LESS_THAN       reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    GREATER_THAN    reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    LESS_THAN_EQUALS reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    GREATER_THAN_EQUALS reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    DOT             reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    SEQ             reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    PAR             reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    ID              reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    IF              reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    WHILE           reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    INPUT           reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    OUTPUT          reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    SEND            reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    RECEIVE         reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    $end            reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    RBRACE          reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    RPAREN          reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+    COMMA           reduce using rule 36 (expr -> expr GREATER_THAN expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 73
+
+    (37) expr -> expr LESS_THAN_EQUALS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    MINUS           reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    TIMES           reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    DIVIDE          reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    EQUALS_EQUALS   reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    NOT_EQUALS      reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    LESS_THAN       reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    GREATER_THAN    reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    LESS_THAN_EQUALS reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    GREATER_THAN_EQUALS reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    DOT             reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    SEQ             reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    PAR             reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    ID              reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    IF              reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    WHILE           reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    INPUT           reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    OUTPUT          reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    SEND            reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    RECEIVE         reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    $end            reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    RBRACE          reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    RPAREN          reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+    COMMA           reduce using rule 37 (expr -> expr LESS_THAN_EQUALS expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 74
+
+    (38) expr -> expr GREATER_THAN_EQUALS expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    PLUS            reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    MINUS           reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    TIMES           reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    DIVIDE          reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    EQUALS_EQUALS   reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    NOT_EQUALS      reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    LESS_THAN       reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    GREATER_THAN    reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    LESS_THAN_EQUALS reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    GREATER_THAN_EQUALS reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    DOT             reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    SEQ             reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    PAR             reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    ID              reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    IF              reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    WHILE           reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    INPUT           reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    OUTPUT          reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    SEND            reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    RECEIVE         reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    $end            reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    RBRACE          reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    RPAREN          reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+    COMMA           reduce using rule 38 (expr -> expr GREATER_THAN_EQUALS expr .)
+
+  ! PLUS            [ shift and go to state 47 ]
+  ! MINUS           [ shift and go to state 48 ]
+  ! TIMES           [ shift and go to state 49 ]
+  ! DIVIDE          [ shift and go to state 50 ]
+  ! EQUALS_EQUALS   [ shift and go to state 51 ]
+  ! NOT_EQUALS      [ shift and go to state 52 ]
+  ! LESS_THAN       [ shift and go to state 53 ]
+  ! GREATER_THAN    [ shift and go to state 54 ]
+  ! LESS_THAN_EQUALS [ shift and go to state 55 ]
+  ! GREATER_THAN_EQUALS [ shift and go to state 56 ]
+  ! DOT             [ shift and go to state 57 ]
+
+
+state 75
+
+    (39) expr -> expr DOT ID .
+
+    PLUS            reduce using rule 39 (expr -> expr DOT ID .)
+    MINUS           reduce using rule 39 (expr -> expr DOT ID .)
+    TIMES           reduce using rule 39 (expr -> expr DOT ID .)
+    DIVIDE          reduce using rule 39 (expr -> expr DOT ID .)
+    EQUALS_EQUALS   reduce using rule 39 (expr -> expr DOT ID .)
+    NOT_EQUALS      reduce using rule 39 (expr -> expr DOT ID .)
+    LESS_THAN       reduce using rule 39 (expr -> expr DOT ID .)
+    GREATER_THAN    reduce using rule 39 (expr -> expr DOT ID .)
+    LESS_THAN_EQUALS reduce using rule 39 (expr -> expr DOT ID .)
+    GREATER_THAN_EQUALS reduce using rule 39 (expr -> expr DOT ID .)
+    DOT             reduce using rule 39 (expr -> expr DOT ID .)
+    SEQ             reduce using rule 39 (expr -> expr DOT ID .)
+    PAR             reduce using rule 39 (expr -> expr DOT ID .)
+    ID              reduce using rule 39 (expr -> expr DOT ID .)
+    IF              reduce using rule 39 (expr -> expr DOT ID .)
+    WHILE           reduce using rule 39 (expr -> expr DOT ID .)
+    INPUT           reduce using rule 39 (expr -> expr DOT ID .)
+    OUTPUT          reduce using rule 39 (expr -> expr DOT ID .)
+    SEND            reduce using rule 39 (expr -> expr DOT ID .)
+    RECEIVE         reduce using rule 39 (expr -> expr DOT ID .)
+    $end            reduce using rule 39 (expr -> expr DOT ID .)
+    RBRACE          reduce using rule 39 (expr -> expr DOT ID .)
+    RPAREN          reduce using rule 39 (expr -> expr DOT ID .)
+    COMMA           reduce using rule 39 (expr -> expr DOT ID .)
+
+
+state 76
+
+    (16) bloco_IF -> IF LPAREN expr RPAREN LBRACE . stmts RBRACE
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE . stmts RBRACE ELSE LBRACE stmts RBRACE
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmts                          shift and go to state 82
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 77
+
+    (18) bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE . stmts RBRACE
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmts                          shift and go to state 83
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 78
+
+    (23) output_args -> output_args COMMA expr .
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    RPAREN          reduce using rule 23 (output_args -> output_args COMMA expr .)
+    COMMA           reduce using rule 23 (output_args -> output_args COMMA expr .)
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 79
+
+    (24) output_args -> output_args COMMA STRING .
+
+    RPAREN          reduce using rule 24 (output_args -> output_args COMMA STRING .)
+    COMMA           reduce using rule 24 (output_args -> output_args COMMA STRING .)
+
+
+state 80
+
+    (25) send_stmt -> SEND LPAREN C_CHANNEL COMMA expr . RPAREN
+    (29) expr -> expr . PLUS expr
+    (30) expr -> expr . MINUS expr
+    (31) expr -> expr . TIMES expr
+    (32) expr -> expr . DIVIDE expr
+    (33) expr -> expr . EQUALS_EQUALS expr
+    (34) expr -> expr . NOT_EQUALS expr
+    (35) expr -> expr . LESS_THAN expr
+    (36) expr -> expr . GREATER_THAN expr
+    (37) expr -> expr . LESS_THAN_EQUALS expr
+    (38) expr -> expr . GREATER_THAN_EQUALS expr
+    (39) expr -> expr . DOT ID
+
+    RPAREN          shift and go to state 84
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
+    EQUALS_EQUALS   shift and go to state 51
+    NOT_EQUALS      shift and go to state 52
+    LESS_THAN       shift and go to state 53
+    GREATER_THAN    shift and go to state 54
+    LESS_THAN_EQUALS shift and go to state 55
+    GREATER_THAN_EQUALS shift and go to state 56
+    DOT             shift and go to state 57
+
+
+state 81
+
+    (26) receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID . RPAREN
+
+    RPAREN          shift and go to state 85
+
+
+state 82
+
+    (16) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts . RBRACE
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts . RBRACE ELSE LBRACE stmts RBRACE
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    RBRACE          shift and go to state 86
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 83
+
+    (18) bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts . RBRACE
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    RBRACE          shift and go to state 87
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 84
+
+    (25) send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .
+
+    SEQ             reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    PAR             reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    ID              reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    IF              reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    WHILE           reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    INPUT           reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    OUTPUT          reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    SEND            reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    RECEIVE         reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    $end            reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+    RBRACE          reduce using rule 25 (send_stmt -> SEND LPAREN C_CHANNEL COMMA expr RPAREN .)
+
+
+state 85
+
+    (26) receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .
+
+    SEQ             reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    PAR             reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    ID              reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    IF              reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    WHILE           reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    INPUT           reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    OUTPUT          reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    SEND            reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    RECEIVE         reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    $end            reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+    RBRACE          reduce using rule 26 (receive_stmt -> RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN .)
+
+
+state 86
+
+    (16) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE . ELSE LBRACE stmts RBRACE
+
+    SEQ             reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    PAR             reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    ID              reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    IF              reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    WHILE           reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    INPUT           reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    OUTPUT          reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    SEND            reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    RECEIVE         reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    $end            reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    RBRACE          reduce using rule 16 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    ELSE            shift and go to state 88
+
+
+state 87
+
+    (18) bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .
+
+    SEQ             reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    PAR             reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    ID              reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    IF              reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    WHILE           reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    INPUT           reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    OUTPUT          reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    SEND            reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    RECEIVE         reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    $end            reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+    RBRACE          reduce using rule 18 (bloco_WHILE -> WHILE LPAREN expr RPAREN LBRACE stmts RBRACE .)
+
+
+state 88
+
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE . LBRACE stmts RBRACE
+
+    LBRACE          shift and go to state 89
+
+
+state 89
+
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE . stmts RBRACE
+    (2) stmts -> . stmt
+    (3) stmts -> . stmts stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmts                          shift and go to state 90
+    stmt                           shift and go to state 3
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 90
+
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts . RBRACE
+    (3) stmts -> stmts . stmt
+    (4) stmt -> . bloco_SEQ
+    (5) stmt -> . bloco_PAR
+    (6) stmt -> . atribuicao
+    (7) stmt -> . bloco_IF
+    (8) stmt -> . bloco_WHILE
+    (9) stmt -> . input_stmt
+    (10) stmt -> . output_stmt
+    (11) stmt -> . send_stmt
+    (12) stmt -> . receive_stmt
+    (13) bloco_SEQ -> . SEQ LBRACE stmts RBRACE
+    (14) bloco_PAR -> . PAR LBRACE stmts RBRACE
+    (15) atribuicao -> . ID EQUALS expr
+    (16) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE
+    (17) bloco_IF -> . IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE
+    (18) bloco_WHILE -> . WHILE LPAREN expr RPAREN LBRACE stmts RBRACE
+    (19) input_stmt -> . INPUT LPAREN ID RPAREN
+    (20) output_stmt -> . OUTPUT LPAREN output_args RPAREN
+    (25) send_stmt -> . SEND LPAREN C_CHANNEL COMMA expr RPAREN
+    (26) receive_stmt -> . RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN
+
+    RBRACE          shift and go to state 91
+    SEQ             shift and go to state 13
+    PAR             shift and go to state 14
+    ID              shift and go to state 15
+    IF              shift and go to state 16
+    WHILE           shift and go to state 17
+    INPUT           shift and go to state 18
+    OUTPUT          shift and go to state 19
+    SEND            shift and go to state 20
+    RECEIVE         shift and go to state 21
+
+    stmt                           shift and go to state 22
+    bloco_SEQ                      shift and go to state 4
+    bloco_PAR                      shift and go to state 5
+    atribuicao                     shift and go to state 6
+    bloco_IF                       shift and go to state 7
+    bloco_WHILE                    shift and go to state 8
+    input_stmt                     shift and go to state 9
+    output_stmt                    shift and go to state 10
+    send_stmt                      shift and go to state 11
+    receive_stmt                   shift and go to state 12
+
+state 91
+
+    (17) bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .
+
+    SEQ             reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    PAR             reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    ID              reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    IF              reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    WHILE           reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    INPUT           reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    OUTPUT          reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    SEND            reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    RECEIVE         reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    $end            reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+    RBRACE          reduce using rule 17 (bloco_IF -> IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE .)
+
