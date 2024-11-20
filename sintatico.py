@@ -35,35 +35,35 @@ def p_stmt(p):
     p[0] = p[1]
 
 def p_bloco_SEQ(p):
-    '''bloco_SEQ : SEQ LBRACE stmts RBRACE'''
+    '''bloco_SEQ : SEQ LBRACE stmts RBRACE SEMICOLON'''
     p[0] = ('SEQ', p[3])
 
 def p_bloco_PAR(p):
-    '''bloco_PAR : PAR LBRACE stmts RBRACE'''
+    '''bloco_PAR : PAR LBRACE stmts RBRACE SEMICOLON'''
     p[0] = ('PAR', p[3])
 
 def p_atribuicao(p):
-    '''atribuicao : ID EQUALS expr'''
+    '''atribuicao : ID EQUALS expr SEMICOLON'''
     p[0] = ('ATRIB', p[1], p[3])
 
 def p_bloco_IF(p):
     '''bloco_IF : IF LPAREN expr RPAREN LBRACE stmts RBRACE
-                | IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE'''
+                | IF LPAREN expr RPAREN LBRACE stmts RBRACE ELSE LBRACE stmts RBRACE SEMICOLON'''
     if len(p) == 8:  # Sem ELSE
         p[0] = ('IF', p[3], p[6])
     else:  # Com ELSE
         p[0] = ('IF', p[3], p[6], p[10])
 
 def p_bloco_WHILE(p):
-    '''bloco_WHILE : WHILE LPAREN expr RPAREN LBRACE stmts RBRACE'''
+    '''bloco_WHILE : WHILE LPAREN expr RPAREN LBRACE stmts RBRACE SEMICOLON'''
     p[0] = ('WHILE', p[3], p[6])
 
 def p_input_stmt(p):
-    '''input_stmt : INPUT LPAREN ID RPAREN'''
+    '''input_stmt : INPUT LPAREN ID RPAREN SEMICOLON'''
     p[0] = ('INPUT', p[3])
 
 def p_output_stmt(p):
-    '''output_stmt : OUTPUT LPAREN output_args RPAREN'''
+    '''output_stmt : OUTPUT LPAREN output_args RPAREN SEMICOLON'''
     p[0] = ('OUTPUT', p[3])
 
 def p_output_args(p):
@@ -77,12 +77,12 @@ def p_output_args(p):
         p[0] = p[1] + [p[3]]
 
 def p_send_stmt(p):
-    '''send_stmt : SEND LPAREN C_CHANNEL COMMA expr RPAREN'''
-    p[0] = ('SEND', p[3], p[5])
+    '''send_stmt : SEND LPAREN C_CHANNEL DOT ID COMMA expr RPAREN SEMICOLON'''
+    p[0] = ('SEND', (p[3], p[5]), p[7])
 
 def p_receive_stmt(p):
-    '''receive_stmt : RECEIVE LPAREN C_CHANNEL COMMA ID RPAREN'''
-    p[0] = ('RECEIVE', p[3], p[5])
+    '''receive_stmt : RECEIVE LPAREN C_CHANNEL DOT ID COMMA ID RPAREN SEMICOLON'''
+    p[0] = ('RECEIVE', (p[3], p[5]), p[7])
 
 def p_expr(p):
     '''expr : INT
@@ -96,8 +96,7 @@ def p_expr(p):
             | expr LESS_THAN expr
             | expr GREATER_THAN expr
             | expr LESS_THAN_EQUALS expr
-            | expr GREATER_THAN_EQUALS expr
-            | expr DOT ID'''
+            | expr GREATER_THAN_EQUALS expr'''
     if len(p) == 2:
         p[0] = p[1]
     else:

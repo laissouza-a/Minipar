@@ -9,7 +9,8 @@ tokens = [
     'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE',
     'COMMA', 'EQUALS', 'LESS_THAN', 'GREATER_THAN', 
     'LESS_THAN_EQUALS', 'GREATER_THAN_EQUALS', 
-    'EQUALS_EQUALS', 'NOT_EQUALS', 'C_CHANNEL', 'DOT'
+    'EQUALS_EQUALS', 'NOT_EQUALS', 'C_CHANNEL', 'DOT',
+    'AND', 'OR','SEMICOLON' 
 ]
 
 # Regras de expressões regulares para tokens simples
@@ -30,6 +31,10 @@ t_GREATER_THAN_EQUALS = r'>='
 t_EQUALS_EQUALS = r'=='
 t_NOT_EQUALS = r'!='
 t_DOT = r'\.'
+t_AND = r'&&'
+t_OR = r'\|\|'
+t_SEMICOLON = r';'
+
 
 # Palavras reservadas
 reserved = {
@@ -57,12 +62,12 @@ def t_STRING(t):
     return t
 
 # Ignorar espaços e tabulações
-t_ignore = ' \t'
+t_ignore = ' \t\n\r'
 
 # Regra para ignorar comentários
 def t_COMMENT(t):
-    r'\#.*'
-    pass
+    r'\#.*\n?'
+    pass 
 
 # Tratamento de erros
 def t_error(t):
